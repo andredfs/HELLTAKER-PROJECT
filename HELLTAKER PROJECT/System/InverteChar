@@ -1,0 +1,23 @@
+.data
+string:
+.text
+li a7,5 #ler int
+ecall
+mv s0,a0 #coloca o tam da string em s0 (nao conta o \0 )
+addi a1,a0,1 #coloca o tamanho da string em a1(conta o \0 )
+la a0,string  #carrega o endereço de string em a0
+li a7,8      #le uma string e coloca no endereço string e registrador a0
+ecall
+la t0,string # endeço inicial da string em t0
+add t1,t0,s0 #endereço final da string em t1
+loop:
+li a7,11     #inicia o print do char
+addi t1,t1,-1  #endereço final menos 1 para tirar o \0 e trocar a letra no loop
+lb a0,0(t1)   #guarda o char em a0
+ecall         #printa o char
+bne t1,t0,loop #se endereco não for igual ao endereço inicial volta par ao começo do loop
+
+
+
+li a7,10 #exit
+ecall

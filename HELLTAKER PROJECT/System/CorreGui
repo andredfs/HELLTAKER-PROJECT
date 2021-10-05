@@ -1,0 +1,39 @@
+.data
+msg1:.string "Corre, Gui!"
+msg2:.string "Poxa, Gui."
+
+.text
+
+li a7,5
+ecall
+mv t0,a0
+
+li a7,5
+ecall
+mv t1,a0
+
+li a7,5
+ecall
+mv t2,a0
+
+div s0,t1,t2
+li t3,60
+div s0,s0,t3
+
+blt s0,t0,corre
+j poxa
+
+corre:
+la a0,msg1
+li a7,4
+ecall
+j done 
+
+poxa:
+la a0,msg2
+li a7,4
+ecall
+
+done:
+li a7,10 #dar exit
+ecall
