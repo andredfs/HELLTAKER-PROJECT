@@ -47,7 +47,7 @@ MAIN:			jal INICIA_MENU
 
 
 
-.include "teste4.s"
+.include "menu.s"
 
 
 SETUP:		la a0,Mapa1			# carrega o endereco do sprite 'map' em a0
