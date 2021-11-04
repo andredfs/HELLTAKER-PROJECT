@@ -1,6 +1,0 @@
-.text
-sw zero,0(t0)
-
-lw s0,0(t0)
-
-addi s0,s0,10
