@@ -1,0 +1,27 @@
+.text
+
+MAIN:
+	li 	a7, 5			        # Serviço Read Int
+	ecall				        # chamada do sistema, valor lido em a0
+    jal  SOMA                    # chama o procedimento SOMA
+	li 	a7, 1			        # serviço de print int
+	ecall				        # chamada do sistema
+	li 	a7, 10			        # Serviço de Exit
+	ecall				        # chamada do sistema
+	
+# coloque aqui o seu procedimento
+SOMA:
+	mv s0,a0
+	li t0,2
+	li s3,1
+	li t2,0
+	mul s1,s0,t0
+	loop:
+	bge s3,s1,done
+	add t2,t2,s3
+	addi s3,s3,2
+	j loop
+
+	done:
+	mv a0,t2
+	jr ra

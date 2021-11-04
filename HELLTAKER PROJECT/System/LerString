@@ -1,0 +1,16 @@
+.data
+string:
+.text
+li a7,5 #ler int
+ecall
+addi a1,a0,1 #adiciona 1 no int para \0
+la a0,string  #coloca o endereço de string em a0
+li a7,8     #ler string e coloca no a0 e no string em data
+ecall
+
+li a7,4    #printa string em a0
+ecall
+
+
+li a7,10 #exit
+ecall
